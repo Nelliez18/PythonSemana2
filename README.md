@@ -35,6 +35,7 @@ while n != 0:
   n = int(input("Digite outro número: "))
 ```
 Prática Independente
+
 IF / ELIF / ELSE — Receber idade e renda e classificar o
 cliente como: Bronze, Prata, Ouro, Diamante - Criar
 versão em Portugol e Python.
