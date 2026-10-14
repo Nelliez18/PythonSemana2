@@ -246,55 +246,59 @@ WHILE — Criar um sistema que: pede senha até o
 usuário acertar. conta tentativas; bloqueia após 3 erros.
 Versão em Portugol e Python.
 ```python
-def sistema_login():
-    """Valida a senha do usuário com limite de 3 tentativas."""
-    senha_correta = "python123"
-    tentativas = 0
-    max_tentativas = 3
+senha_correta = "1234" # Define a senha
+tentativas = 0 # Define quantidade de tentativas
+
+while tentativas < 3: # Define limite de tentativas no loop
+    senha_digitada = input("Digite a senha: ") # pede a senha 
+    tentativas += 1 # computa a  tentativa
     
-    while tentativas < max_tentativas:
-        senha_digitada = input("Digite a senha: ")
-        tentativas += 1
-        
-        if senha_digitada == senha_correta:
-            print("Acesso concedido!")
-            return True
-            
-        print(f"Senha incorreta! Tentativas restantes: {max_tentativas - tentativas}")
-        
-    print("Acesso bloqueado! Você excedeu 3 tentativas.")
-    return False
+    if senha_digitada == senha_correta: # Confere se a senha inserida é a correta
+        print("Acesso Permitido!") # se sim, exibe que foi a correta
+        break # encerra o loop 
+    else: # Confere se a senha foi inserida corretamente
+        print(f"Senha Incorreta. Tentativa {tentativas} de 3.") # Se não, exibe que a senha era incorreta
+else: # Confere se a senha foi colocada corretamente após as 3 tentativas/break
+    print("Acesso Bloqueado após 3 erros.") # Se não, exibe que o acesso foi bloqueado 
 
-# Para rodar: sistema_login()
-```
 
-```portugol
-programa {
-    funcao inicio() {
-        cadeia senha_correta = "python123"
-        cadeia senha_digitada
-        inteiro tentativas = 0
-        logico acessou = falso
-       
-        enquanto (tentativas < 3 e acessou == falso) {
-            escreva("Digite a senha: ")
-            leia(senha_digitada)
-            tentativas = tentativas + 1
-            
-            se (senha_digitada == senha_correta) {
-                escreva("Acesso concedido!")
-                acessou = verdadeiro
-            } senao {
-                escreva("Senha incorreta! Tentativas usadas: ", tentativas, "/3\n")
-            }
-        }
-        
-        se (acessou == falso) {
-            escreva("Acesso bloqueado! Você excedeu 3 tentativas.")
-        }
-    }
-}
+# EM PORTUGOL
 
+# programa
+# {
+#     funcao inicio()
+#     {
+#         // Declaração das variáveis
+#         cadeia senha_correta = "1234" // Define a senha
+#         cadeia senha_digitada
+#         inteiro tentativas = 0 // Define quantidade de tentativas
+#         logico acesso_permitido = falso // Variável de controle auxiliar para o break/fim do loop
+# 
+#         // Define limite de tentativas no loop
+#         enquanto (tentativas < 3 e acesso_permitido == falso)
+#         {
+#             escreva("Digite a senha: ")
+#             leia(senha_digitada) // pede a senha
+#             tentativas = tentativas + 1 // computa a tentativa
+# 
+#             se (senha_digitada == senha_correta) // Confere se a senha inserida é a correta
+#             {
+#                 escreva("Acesso Permitido!\n") // se sim, exibe que foi a correta
+#                 acesso_permitido = verdadeiro // Define que deu certo para encerrar o loop
+#             }
+#             senao // Confere se a senha foi inserida corretamente
+#             {
+#                 escreva("Senha Incorreta. Tentativa ", tentativas, " de 3.\n") // Se não, exibe que a senha era incorreta
+#             }
+#         }
+# 
+#         // Confere se a senha foi colocada corretamente após as 3 tentativas (equivalente ao else do while no Python)
+#         se (acesso_permitido == falso)
+#         {
+#             escreva("Acesso Bloqueado após 3 erros.\n") // Se não, exibe que o acesso foi bloqueado
+#         }
+#     }
+# }
 ```
 Mini-desafios Bônus
 Criar um programa que:
