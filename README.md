@@ -40,49 +40,60 @@ IF / ELIF / ELSE — Receber idade e renda e classificar o
 cliente como: Bronze, Prata, Ouro, Diamante - Criar
 versão em Portugol e Python.
 ```python
-def classificar_cliente(idade, renda):
-    """Classifica o cliente com base em sua idade e renda."""
-    if renda >= 10000:
-        return "Diamante"
-    elif renda >= 5000 or (idade > 60 and renda >= 3000):
-        return "Ouro"
-    elif renda >= 2000:
-        return "Prata"
-    else:
-        return "Bronze"
+idade = int(input("Digite a idade do cliente: ")) #  Define idade
+renda = float(input("Digite a renda do cliente: ")) # Define renda
 
-# Teste
-idade_cli = 35
-renda_cli = 5500.0
-categoria = classificar_cliente(idade_cli, renda_cli)
-print(f"O cliente é categoria: {categoria}")
+if renda <= 3000.0: # Confere se a renda é menor ou igual a 3000
+    categoria = "Bronze" # Se sim, define Bronze
+elif renda <= 6000.0: # Confere se a renda é menor ou igual a 6000
+    categoria = "Prata" # Se sim, define Prata
+elif renda <= 12000.0: # Confere se a renda é menor ou igual a 12000
+    categoria = "Ouro" # Se sim, define Ouro
+else: # Confere se as exigencias do anterior foram atendidas
+    categoria = "Diamante" # Se não, define Diamante
 
-```
-```portugol
-programa {
-    funcao inicio() {
-        inteiro idade
-        real renda
-        cadeia categoria
-        
-        escreva("Digite a idade: ")
-        leia(idade)
-        escreva("Digite a renda: ")
-        leia(renda)
-        
-        se (renda >= 10000) {
-            categoria = "Diamante"
-        } senao se (renda >= 5000 ou (idade > 60 e renda >= 3000)) {
-            categoria = "Ouro"
-        } senao se (renda >= 2000) {
-            categoria = "Prata"
-        } senao {
-            categoria = "Bronze"
-        }
-        
-        escreva("O cliente é categoria: ", categoria)
-    }
-}
+print(f"Categoria: {categoria}") # Exibe o a categoria
+
+# EM PORTUGOL
+
+# programa
+# {
+#     funcao inicio()
+#     {
+#         // Declaração das variáveis
+#         inteiro idade
+#         real renda
+#         cadeia categoria
+# 
+#         // Entrada de dados
+#         escreva("Digite a idade do cliente: ")
+#         leia(idade) // Define idade
+# 
+#         escreva("Digite a renda do cliente: ")
+#         leia(renda) // Define renda
+# 
+#         // Estrutura condicional para definir a categoria
+#         se (renda <= 3000.0) // Confere se a renda é menor ou igual a 3000
+#         {
+#             categoria = "Bronze" // Se sim, define Bronze
+#         }
+#         senao se (renda <= 6000.0) // Confere se a renda é menor ou igual a 6000
+#         {
+#             categoria = "Prata" // Se sim, define Prata
+#         }
+#         senao se (renda <= 12000.0) // Confere se a renda é menor ou igual a 12000
+#         {
+#             categoria = "Ouro" // Se sim, define Ouro
+#         }
+#         senao // Confere se as exigências do anterior foram atendidas
+#         {
+#             categoria = "Diamante" // Se não, define Diamante
+#         }
+# 
+#         // Saída de dados
+#         escreva("Categoria: ", categoria) // Exibe a categoria
+#     }
+# }
 ```
 CASE — Criar um menu com 4 operações
 matemáticas e executar a escolhida. Versão em
